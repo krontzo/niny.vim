@@ -1,0 +1,56 @@
+$ TODO: Hello World
+push "Hello \t world!\n"
+dump
+
+$ FIXME: New program
+push "Fizz"
+push "Buzz"
+
+swp $ If you remove this line, you will get "BuzzFizz" instead of "FizzBuzz", note this
+add
+
+macro y do $ comment
+    push 1
+    add $ also FIXME: here
+end
+
+macro n do
+    push 1
+    swp
+    sub
+end
+
+if do y else do n $ NOTE: other
+
+macro loop do
+    dup
+    push -1
+    add
+    fact
+    mult
+end
+
+macro fact do
+    dup
+    dup
+
+    push 0
+    =
+
+    swp
+    push 1
+    =
+
+    or
+    not
+    if do loop
+end
+
+macro operators do
+    push "Spell in strrings too"
+    dump
+    push 1.0
+    push 2.3
+    ==
+end
+
