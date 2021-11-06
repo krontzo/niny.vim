@@ -1,0 +1,28 @@
+macro recursion do
+    dup
+    push -1
+    add
+    fact
+    mult
+end
+
+macro default do
+    pop
+    push 1
+end
+
+macro fact do
+    dup
+    dup
+
+    push 0
+    ==
+
+    swp
+    push 1
+    ==
+
+    or
+    not
+    if do recursion else do default
+end

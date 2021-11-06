@@ -8,15 +8,20 @@ if exists("b:current_syntax")
 endif
 
 " Keyword
-" add|sub|mult|div|pow|root|divmod|if|or|and|not|==|<|>|type|int|bool|float|string|list|append|insert|id|flat
-syn keyword ninyBuiltin add del div divmod dump dup full get
-syn keyword ninyBuiltin inp mult pop pow root sub swp type
+"full|push|dump|dup|pop|swp|change|rev|len|memory|add|sub|mult|div|pow|root|divmod|if|or|and|not|type|int|bool|float|string|list|append|insert|id|flat|inp|get
+syn keyword ninyBuiltin full push dup pop swp change
+syn keyword ninyBuiltin rev len add sub mult div pow
+syn keyword ninyBuiltin root divmod type
+syn keyword ninyType int bool float string list
+syn keyword ninyBuiltin append insert id flat inp get
 syn keyword ninyKeyword end break
 syn keyword ninyDo do nextgroup=ninyMacro skipwhite
 syn keyword ninyStatement macro nextgroup=ninyMacro skipwhite
 syn keyword ninyFunction push nextgroup=ninyNumber,ninyFloat,ninyString skipwhite
+syn keyword ninyFunction dump nextgroup=ninyNumber,ninyFloat,ninyString skipwhite
+syn keyword ninyFunction memory nextgroup=ninyMacro skipwhite
 syn keyword ninyInclude include
-syn keyword ninyOperator or not and
+syn keyword ninyOperator or and not del
 syn match ninyOperator "\(\(>\|<\)=\=\|==\|/=\|=\)"
 syn keyword ninyConditional else if nextgroup=ninyDo skipwhite
 
@@ -30,6 +35,7 @@ syn match ninyFloat '[-+]\d\+\.\d*' contained display
 syn region ninyString start='"' end='"' contained contains=ninyEscape,@Spell
 syn match ninyEscape +\\[nrtv]+ contained
 
+syn region ninyList start='\[' end='\]' contains=ninyNumber,ninyFloat,ninyString,ninyList
 syn region ninyBlock start='do' end='end' fold transparent
     \ contains=ninyFunction,ninyStatement,ninyBuiltIn,ninyConditional,ninyOperator,ninyKeyword
 syn keyword ninyTodo contained TODO FIXME NOTE XXX
@@ -54,3 +60,4 @@ hi def link ninyKeyword       Keyword
 hi def link ninyDo            Keyword
 hi def link ninyMacro         Type
 hi def link ninyEscape        Type
+hi def link ninyType          Type

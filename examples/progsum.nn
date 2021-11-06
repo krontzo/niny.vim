@@ -1,0 +1,27 @@
+macro y do
+    swp
+    get 0
+    add
+    swp
+    push -1
+    add
+    loop
+end
+
+macro loop do
+    dup
+    push 1
+    ==
+    not
+    if do y
+end
+
+macro sum do
+    push 0
+    swp
+    loop
+    add
+end
+
+sum
+dump "\n"

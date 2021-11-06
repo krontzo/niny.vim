@@ -1,0 +1,45 @@
+$ HelloWorld.nn
+push "Hello world!\n"
+dump
+
+push [1, [2, 3, 4], 5]
+flat $ stack = [1, 2, 3, 4, 5]
+
+dump "\n"
+full
+
+macro equals do
+  push "EQUALS"
+  dump "\n"
+  pop
+end
+
+macro other do
+  push "OTHER"
+  dump "\n"
+  pop
+end
+
+push 5 $ stack = [5]
+push 6 $ stack = [5, 6]
+
+== $ stack = [0]
+if do equals else do other
+$ OUT:
+$ OTHER
+
+$ ❯ python3 niny/niny.py niny.tm/examples/helloworld.nn
+$Hello world!
+$5
+$['Hello world!\n', 1, 2, 3, 4, 5]
+
+push 1
+push 2
+push 3
+full $ OUT: [1, 2, 3]
+
+memory additional $ Now you changed your stack to "additional"
+push 4
+push 5
+push 6
+full $ OUT: [4, 5, 6]

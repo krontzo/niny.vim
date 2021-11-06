@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string></string>
+	<key>contactName</key>
+	<string>krontzo</string>
+	<key>description</key>
+	<string>Language Grammar for Niny https://github.com/9gress0r/niny</string>
+	<key>name</key>
+	<string>Niny</string>
+	<key>uuid</key>
+	<string>9AAB78AF-6FAE-493F-BEE5-7D1466C2694F</string>
+</dict>
+</plist>
